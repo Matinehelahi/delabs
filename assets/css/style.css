@@ -1,0 +1,1755 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(353, 93%, 50%);
+    --first-color-alt: hsl(353, 93%, 46%);
+    --first-color-dark: hsl(353, 50%, 15%);
+    --title-color: hsl(355, 22%, 10%);
+    --nav-color: #cbcccb;
+    --text-color: hsl(353, 16%, 32%);
+    --text-color-light: hsl(353, 16%, 48%);
+    --white-color: hsl(24, 86%, 90%);
+    --body-color: #f3f3f3;
+    --container-color: hsl(24, 86%, 92%);
+    --shadow-small-img: drop-shadow(0 4px 16px hsla(353, 100%, 8%, .2));
+    --shadow-big-img: drop-shadow(0 8px 24px hsla(353, 100%, 8%, .2));
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Carter One", system-ui;
+    --biggest-font-size: 2.5rem;
+    --bigger-font-size: 1.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 4.25rem;
+        --bigger-font-size: 2.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+input,
+button,
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--title-color);
+    font-weight: var(--font-regular);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+body {
+    letter-spacing: 0.02em;
+}
+
+.container {
+    max-width: 1150px;
+    margin-inline: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 5rem 1rem;
+}
+
+.section__title {
+    text-align: center;
+    font-size: var(--bigger-font-size);
+    margin-bottom: 2rem;
+}
+
+.main {
+    overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: var(--z-fixed);
+    transition: box-shadow .4s;
+}
+
+.nav__social {
+    display: none;
+}
+
+.nav {
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 1.5rem;
+
+}
+
+.nav__logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+    font-family: var(--second-font);
+    color: var(--title-color);
+}
+
+.nav__logo img {
+    width: 200px;
+}
+
+.nav__toggle {
+    display: flex;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--title-color);
+    border: 1px solid #646765;
+    padding: 7px;
+    border-radius: 50%;
+    font-weight: 500;
+}
+
+.nav__close {
+    display: flex;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--nav-color);
+    border: 1px solid var(--nav-color);
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: 600;
+}
+
+.button__app {
+    width: 100%;
+    margin: 20px 0px 0px;
+    background-color: var(--body-color);
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 0;
+    font-family: var(--body-font);
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+.button__app:hover {
+    opacity: 0.8;
+}
+
+.ico-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ico-link {
+    cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width:1150px) {
+    .nav__menu {
+        position: fixed;
+        top: -120%;
+        left: 0;
+        background-color: var(--body-color);
+        width: 100%;
+        padding-block: 4.5rem 3.5rem;
+        box-shadow: 0 4px 16px hsla(353, 100%, 8%, .1);
+        background: #383938;
+        z-index: 1600;
+        overflow: hidden;
+        transition: top .4s;
+
+    }
+}
+
+
+
+.nav__list {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.nav__link {
+    position: relative;
+    color: var(--nav-color);
+    font-family: var(--body-font);
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #cbcccb;
+    white-space: normal;
+    padding-left: 10px;
+}
+
+.nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+
+}
+
+/* Show menu */
+.nav__menu.show-menu {
+    top: 0;
+}
+
+/* Add shadow header */
+
+
+/* Active link */
+
+
+/*=============== HOME ===============*/
+.home__container {
+    padding-block: 12rem 3rem;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+.home__icon {
+    width: 10rem;
+}
+
+.home__img {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+
+.home__ingredient {
+    row-gap: 4rem;
+}
+
+.home__title {
+    display: inline-flex;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.home_images {
+    object-fit: contain;
+    filter: blur(0px);
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+}
+
+.word-1 {
+    width: 4.31vw;
+    height: 6.6vw;
+    margin-right: 3.47vw;
+}
+
+.word-2 {
+    width: 3.89vw;
+    height: 4.38vw;
+    margin-right: 3.47vw;
+}
+
+.word-3 {
+    width: 0.56vw;
+    height: 6.6vw;
+    margin-right: 3.47vw;
+}
+
+.word-4 {
+    width: 4.38vw;
+    height: 4.38vw;
+    margin-right: 3.68vw;
+}
+
+.word-5 {
+    width: 4.38vw;
+    height: 6.6vw;
+    margin-right: 2.5vw;
+}
+
+.word-6 {
+    width: 4.44vw;
+    height: 4.38vw;
+    margin-right: 0;
+}
+
+.home__button {
+    margin-bottom: 20px;
+}
+
+.button__join {
+    background-color: #383938;
+    color: #fff;
+    padding: 4px;
+    border-radius: 100px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 152px;
+    height: 56px;
+    font-weight: 600;
+    box-shadow: 0 4px 16px hsla(354, 7%, 29%, 0.4);
+    cursor: pointer;
+    transition: transition: transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.9s;
+}
+
+.button__join img {
+    padding-left: 10px;
+}
+
+.button__join:hover {
+    opacity: 0.8;
+}
+
+.home__scroll {
+    position: relative;
+    display: inline-block;
+    padding-top: 51px;
+    opacity: 0.6;
+}
+
+.home__scroll-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0.14vw;
+    height: 2.5vw;
+    background: #000;
+    border-radius: 0.14vw;
+    margin: 0 0 0 -0.07vw;
+    animation-name: scroll;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+.home__scroll-icon::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0.14vw;
+    height: 0.97vw;
+    background: #000;
+    transform: rotate(-45deg);
+    transform-origin: 50% 100%;
+    border-radius: 0.14vw;
+    margin: 0 0 -0.07vw;
+}
+
+.home__scroll-icon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    width: 0.14vw;
+    height: 0.97vw;
+    background: #000;
+    transform: rotate(45deg);
+    transform-origin: 50% 100%;
+    border-radius: 0.14vw;
+    margin: 0 0 -0.07vw;
+}
+
+.home__name {
+    font-family: "Work Sans";
+    color: #222;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/*=============== BUTTON ===============*/
+.button {
+    background-color: #383938;
+    color: #fff;
+    padding: 0 0px;
+    border-radius: 100px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 152px;
+    height: 56px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transition: transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.9s;
+    position: relative;
+
+}
+
+
+.button:hover {
+    opacity: 0.9;
+}
+
+/*=============== WE ARE DELABS GAME ===============*/
+.delabas__container {
+    padding-block: 7rem 3rem;
+    row-gap: 3rem;
+}
+
+.delabs__icon img {
+    width: 100%;
+}
+
+.delabs__image {}
+
+.delabs__data {
+    row-gap: 5rem;
+}
+
+.delabs__title {
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1717;
+}
+
+.delabs__name {
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #646765;
+}
+
+.delabs__description {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #646765;
+    margin-top: 20px;
+
+}
+
+.delabs__button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 24px;
+    margin-top: 30px;
+
+}
+
+/*=============== AP . METABOLTS ===============*/
+.metaoltsAp__container {
+    padding-block: 7rem 3rem;
+    margin-inline: 0.5rem;
+    row-gap: 2rem;
+    padding: 90px 20px 50px;
+    background-color: #222;
+    border-radius: 4rem;
+}
+
+.metaoltsAp__img {
+    width: 60px;
+}
+
+.metaoltsAp__name {
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: rgba(248, 248, 248, 0.8);
+    margin-bottom: 10px;
+
+}
+
+.metaoltsAp__description {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #f8f8f8;
+
+}
+
+
+.adventure__container {
+    padding-block: 7rem 3rem;
+    row-gap: 5rem;
+}
+
+.adventure__video-tag {
+    border-radius: 20px;
+
+}
+
+.adventure__video-tag::-webkit-media-controls {
+    display: none !important;
+}
+
+.adventure__video-tag::-moz-media-controls {
+    display: none !important;
+
+}
+
+.adventure__video-tag::-ms-media-controls {
+    display: none !important;
+
+}
+
+.adventure__data {}
+
+.adventure__title {
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1717;
+}
+
+.adventure__name {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #383938;
+    margin-bottom: 15px;
+}
+
+.adventure__description {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #646765;
+    margin-bottom: 10px;
+}
+
+.adventure__description ul {
+    list-style-type: disc;
+    margin-left: 17px;
+}
+
+.adventure__button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 24px;
+    margin-top: 30px;
+    word-break: break-all
+}
+
+.Libre__container {
+    padding-block: 7rem 3rem;
+    row-gap: 5rem;
+}
+
+.libre__video {}
+
+.libre__data {}
+
+.libre__title {
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1717;
+    margin-bottom: 20px;
+}
+
+.libre__description {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #646765;
+    margin-bottom: 10px;
+}
+
+.button__libre {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 24px;
+    margin-top: 30px;
+    word-break: break-all;
+}
+
+/*=============== GAME . ROADMAP===============*/
+.game {
+    background: linear-gradient(180deg, #e4e4e4 0, #f8f8f8 100%);
+    border-radius: 30px;
+    width: 100%;
+}
+
+.none-title-2 {
+    display: none;
+}
+
+.social__none-2 {
+    display: none;
+}
+
+.game__col {
+    margin-bottom: 150px;
+    row-gap: 2rem;
+}
+
+.game__container {
+    margin: 0;
+}
+
+.game-1 .game__image {
+    margin-bottom: 25px;
+}
+
+.game-1 .game__image img {
+    border-radius: 0 50px 50px 0;
+    margin-right: 15px;
+
+
+}
+
+.game-2 .game__image img {
+    margin-left: 15px;
+    border-radius: 50px 0 0 50px;
+    width: 100%;
+}
+
+.game-3 .game__image img {
+    border-radius: 0 50px 50px 0;
+    margin-right: 15px;
+
+}
+
+.game-4 .game__image img {
+    margin-left: 15px;
+    border-radius: 50px 0 0 50px;
+}
+
+
+
+.game__name {
+    margin-inline: 1rem;
+
+}
+
+
+.game__social {
+    margin-bottom: 50px;
+
+}
+
+
+
+.game__name h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1717;
+    text-transform: uppercase;
+}
+
+.game__name .caption__game {
+    padding: 1px 8px;
+    border-radius: 4px;
+    margin: 4px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    align-self: flex-start;
+    background: blue;
+    color: #fff;
+    width: 80px;
+}
+
+.game__image {
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.game__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game__image img:hover{
+    transform: scale(0.99);
+}
+.game__icons {}
+
+.game__icon {}
+
+.game__icon img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 150px;
+    margin: 0 20px;
+}
+
+.game__social {
+    display: flex;
+    column-gap: 0.5rem;
+    margin-top: 20px;
+    direction: rtl;
+}
+
+.game__social div {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: top;
+}
+
+.game__social div img {}
+
+.game__data {
+    margin-inline: 1rem;
+}
+
+.game__data .game__title {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #383938;
+    margin-bottom: 15px;
+}
+
+.game__data .game__description {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #646765;
+    margin-bottom: 10px;
+}
+
+.game__data .game__button {}
+
+.game__data .game__button .button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 24px;
+    margin-top: 30px;
+    word-break: break-all
+}
+
+.roadmap__container {
+    row-gap: 2rem;
+}
+
+.roadmap__title {
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #1a1717;
+}
+
+.button__center {
+
+    background-color: #383938;
+    color: #fff;
+    padding: 0 0px;
+    border-radius: 100px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 152px;
+    height: 56px;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+
+.button__center:hover {
+    opacity: 0.9;
+}
+
+
+/*=============== PEOPLE===============*/
+.people__container {
+    row-gap: 3rem;
+}
+
+.people__title {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #1a1717;
+}
+
+.people__list {}
+
+.people__list-inner {}
+
+.people__list-col {
+    margin-bottom: 30px;
+}
+
+.people__img img {
+    max-width: 100%;
+}
+
+.people__deta {
+    padding-left: 15px;
+}
+
+.people__name {
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #202120;
+}
+
+.people__job {
+    margin: 10px 0 30px;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #646765;
+}
+
+.people__job-under {
+    position: relative;
+    margin: 10px 0px 30px;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #646765;
+}
+
+.people__img-2 img {
+    width: 250px;
+    height: 250px;
+}
+
+
+.people__job-under:before {
+    content: " ";
+    position: absolute;
+    top: 35px;
+    left: 0;
+    display: block;
+    width: 300px;
+    height: 0.5px;
+    background: #8e918f;
+}
+
+.people__description ul {
+    list-style-type: disc;
+    margin-left: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #646765;
+}
+
+/*=============== DEVISORS ===============*/
+.advisor__title {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #1a1717;
+}
+
+.advisor__name {
+    margin-top: 20px;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #202120;
+}
+
+.advisor__list-col {
+    margin-bottom: 30px;
+
+}
+
+.advisor__description {
+    margin-top: 10px;
+    position: relative;
+    padding-left: 9px;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #646765;
+}
+
+.advisor__img {
+    width: 250px;
+    height: 250px;
+}
+
+/*=============== BACKERS & PARTNERS===============*/
+.backersPartners {
+    background: linear-gradient(180deg, #e4e4e4 0, #f8f8f8 100%);
+    border-radius: 30px;
+
+}
+
+.backersPartners__title {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #1a1717;
+    margin-top: 10px;
+}
+
+.backersPartners__img-2 {
+    display: none;
+}
+
+
+/*=============== CONTACT US ===============*/
+.footer {
+    padding: 120px 0px 24px;
+    background: rgb(32, 33, 32);
+    overflow: hidden;
+}
+
+.footer__container {
+    padding-block: 4rem 2rem;
+    row-gap: 3rem;
+}
+
+.footer__title {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.footer__boxes {}
+
+.footer__box {
+    width: 100%;
+    display: flex;
+    height: 56px;
+    padding: 0 24px;
+    font-size: 15px;
+    line-height: 3.5;
+    border-radius: 28px;
+    border: 1px solid #fff;
+    margin-bottom: 20px;
+    display: flex;
+
+}
+
+.footer__box a {
+    color: #fff;
+    display: flex;
+
+}
+
+.footer__box img {
+    width: 32px;
+    height: 32px;
+    margin-top: 0.8rem;
+}
+
+
+.footer__menu {}
+
+.footer__menu .footer__menu__list {}
+
+.footer__menu .footer__menu-cell {}
+
+.footer__menu .footer__btn {
+    display: inline-flex;
+    font-size: 13px;
+    line-height: 2;
+    font-weight: 600;
+    color: #646765;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.footer__menu .footer__btn:hover {
+    color: #f8f8f8;
+}
+
+.footer__social {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.footer__social img {
+    width: 25px;
+    height: 25px;
+}
+
+.footer__bottom {}
+
+.footer__bottom .footer-lang {}
+
+.footer__bottom .lang-list {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.footer__bottom .list-item:first-child button {
+    display: inline-flex;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #f3f3f3;
+    background-color: transparent;
+}
+
+.footer__bottom .list-item:last-child button {
+    display: inline-flex;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+    color: #646765;
+    background-color: transparent;
+}
+
+.footer__bottom .copy {
+    margin-top: 20px;
+    color: #f3f3f3;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 400;
+    opacity: 0.8;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.footer__bottom .copy a {
+    color: #f3f3f3;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+    width: .8rem;
+    background-color: #cbcccb;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #9da29f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #646765;
+}
+
+/*=============== SCROLL UP ===============*/
+
+.scrollup {
+    position: fixed;
+    right:3rem;
+    bottom: 10rem;
+    background-color: var(--body-color);
+    box-shadow: 0 4px 16px hsl(353, 100%, 8%, .2);
+    color: var(--title-color);
+    display: inline-block;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 50%;
+    z-index: var(--z-tooltip);
+    transition: bottom .4s, transform .4s;
+
+}
+
+.scrollup:hover {
+    transform: translateY(-.5rem);
+}
+
+/* Show Scroll Up */
+.footer__menu.show-scroll {
+    bottom: 7rem;
+}
+
+.active-link::after {
+    width: 60%;
+}
+
+/* ===============  scroll Progress Bar =============== */
+.scroll_Progress_Bar {
+    position: fixed;
+    right:3rem;
+    bottom: 2rem;
+    background-color: transparent;
+    display: inline-block;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    z-index:1000;
+    transition: bottom .4s, transform .4s;
+
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width:320px) {
+    .nav__social {
+        display: none;
+    }
+
+    .roadmap__image-2 {
+        display: none;
+    }
+
+    .container {
+        margin-inline: 1rem;
+    }
+
+    .home__icon {
+        width: 4rem;
+    }
+
+    .metaoltsAp__container {
+        margin: 0;
+    }
+
+    .metaoltsAp__container div:nth-child(2) {
+        padding-left: 70px;
+        /* background-color: red;       */
+    }
+
+
+
+
+    .game__name h2 {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .game__icon img {
+        width: 150px;
+        margin: 0 20px;
+    }
+
+    .game__social {
+        margin-bottom: 50px;
+
+    }
+
+    .game__data {
+        margin-inline: 1rem;
+    }
+
+    .game__name {
+        margin-inline: 1rem;
+
+    }
+
+
+    .people__img img {
+        width: 184px;
+        height: 238px;
+    }
+
+    .people__img-2 {
+        margin-inline: 4rem;
+    }
+
+    .people__img-2 img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .people__list-inner:last-child .people__name,
+    .people__list-inner:last-child .people__job,
+    .people__list-inner:last-child .people__description {
+        text-align: center;
+
+    }
+
+
+    .people__job-under:before {
+        content: " ";
+        position: absolute;
+        top: 35px;
+        left: 0;
+        display: block;
+        width: 160px;
+        height: 0.5px;
+        background: #8e918f;
+    }
+
+    .people__list-inner:first-child .people__list-col {
+        width: 160px;
+    }
+
+
+    .people__description {
+        font-size: 12px;
+    }
+
+    .advisor__img {
+        margin-inline: 4rem;
+
+    }
+
+    .advisor__name {
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .advisor__description {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .advisor__img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .footer .footer__box a {
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .footer .box-1 img {
+        margin-left: 50px;
+    }
+
+    .footer .box-2 img {
+        width: 20px;
+        margin-left: 10px;
+    }
+
+    .footer__box {
+        padding: auto 17px;
+    }
+
+    .game__image img {
+        height: 250px;
+    }
+
+    .button__center {
+        width: 100%;
+    }
+    .button img {
+        display: none;
+    }
+
+    /* ///// */
+}
+
+/* For medium devices */
+@media screen and (max-width:768px) {
+    .home__icon {
+        width: 7rem;
+    }
+
+    .button__center {
+        width: 100%;
+    }
+
+    .roadmap__image-2 {
+        display: none;
+    }
+
+    .metaoltsAp__container {
+        margin: 1px;
+    }
+
+    .metaoltsAp__container div:nth-child(2) {
+        margin-left: 60px;
+    }
+
+    .game__social {
+        margin-right: 20px;
+    }
+
+    .roadmap__image {
+        background: url(../img/img-roadmap-mo.png);
+    }
+
+    .inner1 .people__img img {
+        width: 70%;
+    }
+
+    .inner1 .people__list-col:nth-child(2) .people__img img,
+    .inner1 .people__list-col:nth-child(4) .people__img img {
+        margin-left: 8rem;
+    }
+
+    .inner1 .people__description {
+        width: 55%;
+    }
+
+    .people__name {
+        text-align: center;
+    }
+
+    .people__job {
+        text-align: center;
+    }
+
+    .inner1 .people__list-col:nth-child(2) .people__deta,
+    .inner1 .people__list-col:nth-child(4) .people__deta {
+        margin-left: 8rem;
+        width: 100%;
+
+    }
+
+    .inner2 {
+        display: flex;
+        padding: 0;
+        margin-top: 32px;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .inner2 .people__img-2 img {
+        width: 250px;
+        height: 320px;
+    }
+
+    .advisor__name {
+        text-align: center;
+    }
+
+    .advisor__description {
+        text-align: center;
+    }
+
+    .advisor__list-inner {
+        display: flex;
+        padding: 0;
+        margin-top: 32px;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .advisor__description {
+        width: 250px;
+    }
+
+    .game__image img {
+        height: 250px;
+    }
+
+    .button img {
+        display: none;
+    }
+
+}
+
+/* For large devices */
+@media screen and (min-width:1150px) {
+    .container {
+        margin-inline: auto;
+    }
+
+    .section {
+        padding-block: 0rem 2rem;
+    }
+
+    .section__title {
+        margin-bottom: 4rem;
+    }
+
+    .nav {
+        height: calc(var(--header-height));
+        margin: 30px 40px 0;
+    }
+
+    .nav__social {
+        display: block;
+    }
+
+    .nav__social ul {
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+
+    .nav__toggle,
+    .nav__close {
+        display: none;
+    }
+
+    .nav__list {
+        display: none;
+    }
+
+    .button__social {
+        background-color: #383938;
+        color: #fff;
+        padding: 4px;
+        border-radius: 100px;
+        font-size: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 32px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .button__social:hover {
+        opacity: 0.9;
+    }
+
+    .delabas__container {
+        grid-template-columns: 575px 550px;
+        align-items: center;
+    }
+
+    .delabs__title {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+
+    .delabs__button {
+        width: 12rem;
+        height: 60px;
+        text-align: left;
+        padding-left: 24px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+
+    .Ap {
+        height: 100%;
+        position: relative;
+        z-index: 5;
+    }
+
+    .metaoltsAp__container {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        padding: 14rem 7rem;
+        row-gap: 3rem;
+    }
+
+    .ap {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        position: relative;
+        max-width: 83.6vw;
+        margin: 0;
+        width: 100%;
+
+    }
+
+    .metaoltsAp__container div {
+        width: 320px;
+    }
+
+    .metaoltsAp__name {
+        font-size: 32px;
+    }
+
+    .metaoltsAp__img {
+        width: 100px;
+    }
+
+    .adventure__container {
+        grid-template-columns: 600px 550px;
+        align-items: center;
+        direction: rtl;
+        row-gap: 2rem;
+
+    }
+
+    .adventure__data {
+        direction: ltr;
+    }
+
+    .adventure__buttonBox {
+        display: flex;
+        column-gap: 1rem;
+
+    }
+
+    .adventure__title,
+    .libre__title {
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+
+    .libre__description {
+        font-size: 16px;
+    }
+
+    .adventure__button,
+    .button__libre {
+        width: 8rem;
+        height: 60px;
+        text-align: left;
+        padding-left: 24px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+
+    .adventure__name {
+        font-size: 20px;
+    }
+
+    .Libre__container {
+        grid-template-columns: 600px 500px;
+        align-items: center;
+        column-gap: 4rem;
+    }
+
+    .game__col {
+        align-items: center;
+        display: flex;
+        height: 600px;
+        column-gap: 4rem;
+        margin-bottom: 20px;
+    }
+
+    .game-2,
+    .game-4 {
+        direction: rtl;
+        column-gap: 7rem;
+
+    }
+
+    .game-2 .game__inside,
+    .game-4 .game__inside {
+        direction: ltr;
+    }
+
+    .roadmap__image-1 {
+        display: none;
+    }
+
+    .none-title {
+        display: none;
+    }
+
+    .game__image {
+        width: 750px;
+        height: 500px;
+    }
+
+    .game__image img {
+        height: 100%;
+    }
+
+    .game__inside {
+        width: 500px;
+    }
+
+    .social__none {
+        display: none;
+    }
+
+    .social__none-2 {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    .none-title-2 {
+        display: flex;
+        column-gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .game__icon img {
+        width: 250px;
+    }
+
+    .game__data .game__title {
+        font-size: 20px;
+    }
+
+    .game__description {
+        font-size: 16px;
+    }
+
+    .game__button {
+        display: flex;
+        column-gap: 1rem;
+    }
+
+    .game__data .game__button .button {
+        width: 12rem;
+        height: 60px;
+        text-align: left;
+        padding-left: 24px;
+        margin-top: 30px;
+        font-size: 15px;
+    }
+
+    .inner1 {
+        display: flex;
+        column-gap: 2rem;
+    }
+
+    .inner2 {
+        display: flex;
+        column-gap: 1rem;
+
+    }
+
+    .inner1 .people__list-col {
+        width: 270px;
+    }
+
+    .people__job-under:before {
+        content: " ";
+        position: absolute;
+        top: 35px;
+        left: 0;
+        display: block;
+        width: 250px;
+        height: 0.5px;
+        background: #9da29f;
+    }
+
+    .advisor__list-inner {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+    }
+
+    .backersPartners__title {
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    .backersPartners__img-2 {
+        display: block;
+    }
+
+    .backersPartners__img-1 {
+        display: none;
+    }
+
+    .footer__box {
+        width: 400px;
+    }
+
+    .footer__menu {
+        justify-self: end;
+        margin-right: 200px;
+
+    }
+
+    .footer__menu .footer__btn {
+        font-size: 15px;
+
+    }
+
+    .footer__inside {
+        display: flex;
+        justify-content: space-between;
+        direction: rtl;
+    }
+
+    .footer__social {
+        direction: ltr;
+    }
+
+    .footer__bottom {
+        direction: ltr;
+    }
+
+    .game__image img {
+        height: 500px;
+    }
+
+    .button img {
+        padding-left: 1.2rem;
+        width: 45px;
+        object-fit: cover;
+    }
+    .nav__logo{
+        transform: translateY(50px);
+    }
+}
