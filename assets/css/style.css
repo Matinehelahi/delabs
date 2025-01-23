@@ -7,15 +7,20 @@
 
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
-    --first-color: hsl(353, 93%, 50%);
-    --first-color-alt: hsl(353, 93%, 46%);
-    --first-color-dark: hsl(353, 50%, 15%);
-    --title-color: hsl(355, 22%, 10%);
-    --nav-color: #cbcccb;
-    --text-color: hsl(353, 16%, 32%);
-    --text-color-light: hsl(353, 16%, 48%);
-    --white-color: hsl(24, 86%, 90%);
     --body-color: #f3f3f3;
+    --text-color: hsl(353, 16%, 32%);
+    --title-color: #1a1717;
+    --name-color: #646765;
+    --blue-color: #370e9f;
+    --line-color: #8e918f;
+
+    --nav-color: #cbcccb;
+    --nav-menu-color: #383938;
+    --button-color: #383938;
+    --black-color: #000;
+    --white-color: #fff;
+    --footer-color: rgb(32, 33, 32);
+
     --container-color: hsl(24, 86%, 92%);
     --shadow-small-img: drop-shadow(0 4px 16px hsla(353, 100%, 8%, .2));
     --shadow-big-img: drop-shadow(0 8px 24px hsla(353, 100%, 8%, .2));
@@ -112,9 +117,12 @@ img {
 body {
     letter-spacing: 0.02em;
 }
+main{
+    max-width: 1366px;
+    
+}
 
 .container {
-    max-width: 1150px;
     margin-inline: 1.5rem;
 }
 
@@ -234,7 +242,7 @@ body {
         width: 100%;
         padding-block: 4.5rem 3.5rem;
         box-shadow: 0 4px 16px hsla(353, 100%, 8%, .1);
-        background: #383938;
+        background: var(--nav-menu-color);
         z-index: 1600;
         overflow: hidden;
         transition: top .4s;
@@ -358,7 +366,7 @@ body {
 }
 
 .button__join {
-    background-color: #383938;
+    background-color: var(--button-color);
     color: #fff;
     padding: 4px;
     border-radius: 100px;
@@ -371,7 +379,6 @@ body {
     font-weight: 600;
     box-shadow: 0 4px 16px hsla(354, 7%, 29%, 0.4);
     cursor: pointer;
-    transition: transition: transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.9s;
 }
 
 .button__join img {
@@ -395,7 +402,7 @@ body {
     left: 50%;
     width: 0.14vw;
     height: 2.5vw;
-    background: #000;
+    background: var(--black-color);
     border-radius: 0.14vw;
     margin: 0 0 0 -0.07vw;
     animation-name: scroll;
@@ -414,7 +421,7 @@ body {
     left: 50%;
     width: 0.14vw;
     height: 0.97vw;
-    background: #000;
+    background: var(--black-color);
     transform: rotate(-45deg);
     transform-origin: 50% 100%;
     border-radius: 0.14vw;
@@ -428,7 +435,7 @@ body {
     right: 50%;
     width: 0.14vw;
     height: 0.97vw;
-    background: #000;
+    background: var(--black-color);
     transform: rotate(45deg);
     transform-origin: 50% 100%;
     border-radius: 0.14vw;
@@ -448,8 +455,8 @@ body {
 
 /*=============== BUTTON ===============*/
 .button {
-    background-color: #383938;
-    color: #fff;
+    background-color: var(--button-color);
+    color: var(--white-color);
     padding: 0 0px;
     border-radius: 100px;
     font-size: 15px;
@@ -460,7 +467,6 @@ body {
     height: 56px;
     font-weight: 600;
     cursor: pointer;
-    transition: transition: transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.9s;
     position: relative;
 
 }
@@ -490,7 +496,7 @@ body {
     font-size: 25px;
     line-height: 1.2;
     font-weight: 700;
-    color: #1a1717;
+    color: var(--title-color);
 }
 
 .delabs__name {
@@ -498,14 +504,14 @@ body {
     font-size: 19px;
     line-height: 1.2;
     font-weight: 600;
-    color: #646765;
+    color: var(--name-color);
 }
 
 .delabs__description {
     font-size: 14px;
     line-height: 1.5;
     font-weight: 500;
-    color: #646765;
+    color: var(--name-color);
     margin-top: 20px;
 
 }
@@ -721,7 +727,7 @@ body {
     font-size: 28px;
     line-height: 1.2;
     font-weight: 700;
-    color: #1a1717;
+    color: var(--title-color);
     text-transform: uppercase;
 }
 
@@ -735,8 +741,8 @@ body {
     letter-spacing: -0.02em;
     text-align: center;
     align-self: flex-start;
-    background: blue;
-    color: #fff;
+    background: var(--blue-color);
+    color: var(--white-color);
     width: 80px;
 }
 
@@ -753,9 +759,10 @@ body {
     transition: transform 0.3s ease;
 }
 
-.game__image img:hover{
+.game__image img:hover {
     transform: scale(0.99);
 }
+
 .game__icons {}
 
 .game__icon {}
@@ -792,7 +799,7 @@ body {
     font-size: 16px;
     line-height: 1.2;
     font-weight: 600;
-    color: #383938;
+    color: var(--title-color);
     margin-bottom: 15px;
 }
 
@@ -800,7 +807,7 @@ body {
     font-size: 14px;
     line-height: 1.5;
     font-weight: 600;
-    color: #646765;
+    color: var(--name-color);
     margin-bottom: 10px;
 }
 
@@ -823,13 +830,13 @@ body {
     font-size: 26px;
     line-height: 1.2;
     font-weight: 700;
-    color: #1a1717;
+    color: var(--title-color);
 }
 
 .button__center {
 
-    background-color: #383938;
-    color: #fff;
+    background-color: var(--button-color);
+    color: var(--white-color);
     padding: 0 0px;
     border-radius: 100px;
     font-size: 15px;
@@ -858,7 +865,7 @@ body {
     font-size: 28px;
     line-height: 1.2;
     font-weight: 600;
-    color: #1a1717;
+    color: var(--title-color);
 }
 
 .people__list {}
@@ -890,7 +897,7 @@ body {
     font-size: 13px;
     line-height: 1.3;
     font-weight: 600;
-    color: #646765;
+    color: var(--name-color);
 }
 
 .people__job-under {
@@ -899,7 +906,7 @@ body {
     font-size: 15px;
     line-height: 1.3;
     font-weight: 600;
-    color: #646765;
+    color: var(--name-color);
 }
 
 .people__img-2 img {
@@ -916,7 +923,7 @@ body {
     display: block;
     width: 300px;
     height: 0.5px;
-    background: #8e918f;
+    background: var(--line-color);
 }
 
 .people__description ul {
@@ -924,7 +931,7 @@ body {
     margin-left: 10px;
     font-size: 13px;
     font-weight: 500;
-    color: #646765;
+    color: var(--name-color);
 }
 
 /*=============== DEVISORS ===============*/
@@ -932,7 +939,7 @@ body {
     font-size: 28px;
     line-height: 1.2;
     font-weight: 600;
-    color: #1a1717;
+    color: var(--title-color);
 }
 
 .advisor__name {
@@ -955,7 +962,7 @@ body {
     font-size: 13px;
     line-height: 1.3;
     font-weight: 500;
-    color: #646765;
+    color: var(--name-color);
 }
 
 .advisor__img {
@@ -974,7 +981,7 @@ body {
     font-size: 28px;
     line-height: 1.2;
     font-weight: 600;
-    color: #1a1717;
+    color: var(--title-color);
     margin-top: 10px;
 }
 
@@ -986,7 +993,7 @@ body {
 /*=============== CONTACT US ===============*/
 .footer {
     padding: 120px 0px 24px;
-    background: rgb(32, 33, 32);
+    background: var(--footer-color);
     overflow: hidden;
 }
 
@@ -1000,7 +1007,7 @@ body {
     line-height: 1.2;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--white-color);
 }
 
 .footer__boxes {}
@@ -1013,14 +1020,14 @@ body {
     font-size: 15px;
     line-height: 3.5;
     border-radius: 28px;
-    border: 1px solid #fff;
+    border: 1px solid var(--white-color);
     margin-bottom: 20px;
     display: flex;
 
 }
 
 .footer__box a {
-    color: #fff;
+    color: var(--white-color);
     display: flex;
 
 }
@@ -1043,7 +1050,7 @@ body {
     font-size: 13px;
     line-height: 2;
     font-weight: 600;
-    color: #646765;
+    color: var(--name-color);
     transition: color 0.2s;
     text-transform: uppercase;
     cursor: pointer;
@@ -1092,7 +1099,7 @@ body {
     font-weight: 500;
     transition: color 0.2s;
     cursor: pointer;
-    color: #646765;
+    color: var(--name-color);
     background-color: transparent;
 }
 
@@ -1114,7 +1121,7 @@ body {
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
     width: .8rem;
-    background-color: #cbcccb;
+    background-color: var(--nav-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -1122,14 +1129,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #646765;
+    background-color: var(--name-color);
 }
 
 /*=============== SCROLL UP ===============*/
 
 .scrollup {
     position: fixed;
-    right:3rem;
+    right: 3rem;
     bottom: 10rem;
     background-color: var(--body-color);
     box-shadow: 0 4px 16px hsl(353, 100%, 8%, .2);
@@ -1160,17 +1167,18 @@ body {
 /* ===============  scroll Progress Bar =============== */
 .scroll_Progress_Bar {
     position: fixed;
-    right:3rem;
+    right: 3rem;
     bottom: 2rem;
     background-color: transparent;
     display: inline-block;
     padding: 10px;
     font-size: 15px;
     font-weight: 600;
-    z-index:1000;
+    z-index: 1000;
     transition: bottom .4s, transform .4s;
 
 }
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width:320px) {
@@ -1314,6 +1322,7 @@ body {
     .button__center {
         width: 100%;
     }
+
     .button img {
         display: none;
     }
@@ -1462,8 +1471,8 @@ body {
     }
 
     .button__social {
-        background-color: #383938;
-        color: #fff;
+        background-color: var(--nav-menu-color);
+        color: var(--white-color);
         padding: 4px;
         border-radius: 100px;
         font-size: 10px;
@@ -1749,7 +1758,8 @@ body {
         width: 45px;
         object-fit: cover;
     }
-    .nav__logo{
+
+    .nav__logo {
         transform: translateY(50px);
     }
 }
