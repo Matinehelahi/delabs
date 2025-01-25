@@ -117,13 +117,16 @@ img {
 body {
     letter-spacing: 0.02em;
 }
-main{
-    max-width: 1366px;
-    
+
+main {
+
 }
 
 .container {
     margin-inline: 1.5rem;
+    max-width: 1366px;
+
+
 }
 
 .grid {
@@ -141,9 +144,8 @@ main{
     margin-bottom: 2rem;
 }
 
-.main {
-    overflow: hidden;
-}
+
+
 
 /*=============== HEADER & NAV ===============*/
 .header {
@@ -295,10 +297,17 @@ main{
     text-align: center;
     display: grid;
     place-items: center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .home__icon {
     width: 10rem;
+    z-index: 100;
+    position: fixed;
+    bottom: 450px;
+    /* left: 50px;  */
+    transition: transform 1.5s ease, left 0.5s ease, bottom 0.5s ease;
 }
 
 .home__img {
@@ -314,8 +323,9 @@ main{
 .home__title {
     display: inline-flex;
     align-items: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 55px;
     position: relative;
+    margin-top: 100px;
 }
 
 .home_images {
@@ -486,7 +496,9 @@ main{
     width: 100%;
 }
 
-.delabs__image {}
+.delabs__image {
+    display: none;
+}
 
 .delabs__data {
     row-gap: 5rem;
@@ -527,6 +539,7 @@ main{
 
 /*=============== AP . METABOLTS ===============*/
 .metaoltsAp__container {
+   
     padding-block: 7rem 3rem;
     margin-inline: 0.5rem;
     row-gap: 2rem;
@@ -674,6 +687,7 @@ main{
 .game__col {
     margin-bottom: 150px;
     row-gap: 2rem;
+
 }
 
 .game__container {
@@ -995,6 +1009,7 @@ main{
     padding: 120px 0px 24px;
     background: var(--footer-color);
     overflow: hidden;
+    width: 100%;
 }
 
 .footer__container {
