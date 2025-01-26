@@ -107,62 +107,73 @@ window.addEventListener('scroll', () => {
     title.style.transform = `translateY(${scrollY * -1.5}px)`;
 });
 /*=============== SCROLL  home__icon ===============*/
-// const icon = document.querySelector('.home__icon');
-// const targetScroll = 700;
-// let animationApplied = false;
-// window.addEventListener('scroll', () => {
-//     const scrollY = window.scrollY;
-//     if (scrollY < targetScroll) {
-//         icon.style.transform = `translateY(${scrollY * 1.5}px) scale(1) rotate(0deg)`;
-//     }else     if (scrollY >= targetScroll && !animationApplied) {
-        
-//         icon.style.transform = `translate(150px,-150px) scale(2) rotate(520deg)`;
-//         icon.style.left = '10px';
-//         icon.style.botom = '1700px';
-//         animationApplied = true;
-//     }
-
-// });
-
-
 const icon = document.querySelector('.home__icon');
 
-    // تعیین نقاط اسکرول
-    const startScroll = 10; // شروع انیمیشن
-    const midScroll = 300;  // مرحله دوم
-    const endScroll = 500; // مرحله سوم (نهایی)
+// تعیین نقاط اسکرول
+const startScroll = 10; // شروع انیمیشن
+const midScroll = 300;  // مرحله دوم
+const endScroll = 500; // مرحله سوم (نهایی)
 
-    let finalStateApplied = false; // پرچم برای اجرای ثابت در موقعیت نهایی
+let finalStateApplied = false; // پرچم برای اجرای ثابت در موقعیت نهایی
 
-    // رویداد اسکرول
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY; // مقدار اسکرول فعلی
+// رویداد اسکرول
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY; // مقدار اسکرول فعلی
 
-      // مرحله اول: حرکت خطی با اسکرول
-      if (scrollY < startScroll) {
+    // مرحله اول: حرکت خطی با اسکرول
+    if (scrollY < startScroll) {
         const translateY = scrollY * 0.5; // حرکت خطی به سمت پایین
-        icon.style.transform =`translateY(${translateY}px) scale(1) rotate(0deg)` ; // بدون چرخش یا تغییر اندازه
-      }
+        icon.style.transform = `translateY(${translateY}px) scale(1) rotate(0deg)`; // بدون چرخش یا تغییر اندازه
+    }
 
     //   مرحله دوم: چرخش و جابه‌جایی
-      else if (scrollY >= startScroll && scrollY < midScroll) {
+    else if (scrollY >= startScroll && scrollY < midScroll) {
         const progress = (scrollY - startScroll) / (midScroll - startScroll); // درصد پیشرفت
         const rotate = progress * -170; // چرخش تا 180 درجه
         const translateX = progress * 400; // انتقال به راست
         const translateY = progress * 0.01; // انتقال به 
         const scale = 2 + progress; // افزایش اندازه (تا 2 برابر)
-        icon.style.transform =` translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`;
-      }
+        icon.style.transform = ` translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`;
+    }
 
-   
 
-      // مرحله نهایی: ثابت ماندن در موقعیت نهایی
-      else if (scrollY >= endScroll && !finalStateApplied) {
-        icon.style.position ='absolute';
+
+    // مرحله نهایی: ثابت ماندن در موقعیت نهایی
+    else if (scrollY >= endScroll && !finalStateApplied) {
+        icon.style.position = 'absolute';
         icon.style.transform = `translate(-300px, 630px) rotate(0deg) scale(3)`;
 
-        icon.style.bottom ='auto';
+        icon.style.bottom = 'auto';
         icon.style.left = 'auto';
         finalStateApplied = true; // اطمینان از اینکه این مرحله فقط یک بار اجرا شود
-      }
-    });
+    }
+});
+/*=============== SCROLL  metaoltsAp ===============*/
+// const metaoltsAp = document.querySelector('.metaoltsAp__container');
+// const delabas = document.querySelector('.delabas__container');
+// const delayOffset = 480;
+
+// window.addEventListener('scroll',()=>{
+//     const scrollY = window.scrollY;
+//     const delabasHight = delabas.offsetHeight;
+
+//     if (scrollY >= delabasHight + delayOffset){
+//         metaoltsAp.style.top = `${scrollY + delabasHight + delayOffset}px`;
+//     }else{
+//         metaoltsAp.style.top = '15vh';
+//     }
+// });
+
+// const metaoltsAp = document.querySelector('.metaoltsAp__container');
+// const delabas = document.querySelector('.delabas__container');
+
+// window.addEventListener('scroll',()=>{
+//     const scrollY = window.scrollY;
+//     const delabasHight = delabas.offsetHeight;
+
+//     if (scrollY >= delabasHight){
+//         metaoltsAp.style.top = `${scrollY - delabasHight}px`;
+//     }else{
+//         metaoltsAp.style.top = '-560px';
+//     }
+// });

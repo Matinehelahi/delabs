@@ -118,13 +118,14 @@ body {
     letter-spacing: 0.02em;
 }
 
-main {
-
+.main {
+    overflow: hidden;
 }
 
+
 .container {
+    max-width: 1120px;
     margin-inline: 1.5rem;
-    max-width: 1366px;
 
 
 }
@@ -166,7 +167,7 @@ main {
     position: relative;
     height: var(--header-height);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-inline: 1.5rem;
 
@@ -240,15 +241,12 @@ main {
         position: fixed;
         top: -120%;
         left: 0;
-        background-color: var(--body-color);
+        background-color: transparent;
         width: 100%;
         padding-block: 4.5rem 3.5rem;
         box-shadow: 0 4px 16px hsla(353, 100%, 8%, .1);
-        background: var(--nav-menu-color);
         z-index: 1600;
-        overflow: hidden;
         transition: top .4s;
-
     }
 }
 
@@ -490,6 +488,8 @@ main {
 .delabas__container {
     padding-block: 7rem 3rem;
     row-gap: 3rem;
+    z-index: 1;
+    position: relative;
 }
 
 .delabs__icon img {
@@ -539,13 +539,17 @@ main {
 
 /*=============== AP . METABOLTS ===============*/
 .metaoltsAp__container {
-   
-    padding-block: 7rem 3rem;
+
+    padding-block: 3rem 7rem;
     margin-inline: 0.5rem;
     row-gap: 2rem;
-    padding: 90px 20px 50px;
+    padding: 50px 20px 30px;
     background-color: #222;
     border-radius: 4rem;
+    z-index: 2000;
+    /* position: fixed; */
+    transition: top 0.5s ease-in-out;
+    
 }
 
 .metaoltsAp__img {
@@ -1219,7 +1223,6 @@ main {
 
     .metaoltsAp__container div:nth-child(2) {
         padding-left: 70px;
-        /* background-color: red;       */
     }
 
 
@@ -1342,11 +1345,19 @@ main {
         display: none;
     }
 
+    .delabs__image {
+        display: block;
+    }
+
     /* ///// */
 }
 
 /* For medium devices */
 @media screen and (max-width:768px) {
+    .delabs__image {
+        display: block;
+    }
+
     .home__icon {
         width: 7rem;
     }
@@ -1375,18 +1386,18 @@ main {
         background: url(../img/img-roadmap-mo.png);
     }
 
-    .inner1 .people__img img {
+    /* .inner1 .people__img img {
         width: 70%;
-    }
+    } */
 
-    .inner1 .people__list-col:nth-child(2) .people__img img,
+    /* .inner1 .people__list-col:nth-child(2) .people__img img,
     .inner1 .people__list-col:nth-child(4) .people__img img {
         margin-left: 8rem;
-    }
+    } */
 
-    .inner1 .people__description {
+    /* .inner1 .people__description {
         width: 55%;
-    }
+    } */
 
     .people__name {
         text-align: center;
@@ -1396,12 +1407,12 @@ main {
         text-align: center;
     }
 
-    .inner1 .people__list-col:nth-child(2) .people__deta,
+    /* .inner1 .people__list-col:nth-child(2) .people__deta,
     .inner1 .people__list-col:nth-child(4) .people__deta {
         margin-left: 8rem;
         width: 100%;
 
-    }
+    } */
 
     .inner2 {
         display: flex;
@@ -1616,13 +1627,28 @@ main {
         margin-bottom: 20px;
     }
 
+    .game .container:first-child {
+        margin-inline: 0;
+    }
+
+    
+    .Ap:first-child {
+        margin-inline: 0;
+    }
+
     .game-2,
     .game-4 {
         direction: rtl;
-        column-gap: 7rem;
-
+        column-gap: 17rem;
     }
-
+    .game-1,
+    .game-2 {
+        column-gap: 10rem;
+    }
+    .game-2 .game__inside,
+    .game-4 .game__inside {
+        padding-left: 80px;
+    }
     .game-2 .game__inside,
     .game-4 .game__inside {
         direction: ltr;
