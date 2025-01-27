@@ -547,9 +547,8 @@ body {
     background-color: #222;
     border-radius: 4rem;
     z-index: 2000;
-    /* position: fixed; */
     transition: top 0.5s ease-in-out;
-    
+
 }
 
 .metaoltsAp__img {
@@ -1034,6 +1033,7 @@ body {
 .footer__box {
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
     height: 56px;
     padding: 0 24px;
     font-size: 15px;
@@ -1042,13 +1042,12 @@ body {
     border: 1px solid var(--white-color);
     margin-bottom: 20px;
     display: flex;
+    cursor: pointer;
 
 }
 
-.footer__box a {
+.footer__box .btn {
     color: var(--white-color);
-    display: flex;
-
 }
 
 .footer__box img {
@@ -1386,34 +1385,31 @@ body {
         background: url(../img/img-roadmap-mo.png);
     }
 
-    /* .inner1 .people__img img {
+    .inner1 .people__img img {
         width: 70%;
-    } */
-
-    /* .inner1 .people__list-col:nth-child(2) .people__img img,
-    .inner1 .people__list-col:nth-child(4) .people__img img {
-        margin-left: 8rem;
-    } */
-
-    /* .inner1 .people__description {
-        width: 55%;
-    } */
-
-    .people__name {
-        text-align: center;
+    }
+    .inner1 .people__list-col{
+        display: grid;
+        place-items: center;
     }
 
-    .people__job {
-        text-align: center;
+    .inner1 .people__img {
+        display: flex;
+        justify-content: center;
     }
 
-    /* .inner1 .people__list-col:nth-child(2) .people__deta,
-    .inner1 .people__list-col:nth-child(4) .people__deta {
-        margin-left: 8rem;
-        width: 100%;
 
-    } */
 
+    .inner1 .people__deta {
+        display: grid;
+        place-items: left;
+        width: 60%;
+    }
+    .inner2 .people__name,
+    .inner2 .people__job {
+        display: grid;
+        place-items: center;
+    }
     .inner2 {
         display: flex;
         padding: 0;
@@ -1558,9 +1554,10 @@ body {
         width: 100%;
 
     }
-
+    
     .metaoltsAp__container div {
         width: 320px;
+
     }
 
     .metaoltsAp__name {
@@ -1631,7 +1628,7 @@ body {
         margin-inline: 0;
     }
 
-    
+
     .Ap:first-child {
         margin-inline: 0;
     }
@@ -1641,14 +1638,17 @@ body {
         direction: rtl;
         column-gap: 17rem;
     }
+
     .game-1,
     .game-2 {
         column-gap: 10rem;
     }
+
     .game-2 .game__inside,
     .game-4 .game__inside {
         padding-left: 80px;
     }
+
     .game-2 .game__inside,
     .game-4 .game__inside {
         direction: ltr;
@@ -1801,6 +1801,20 @@ body {
     }
 
     .nav__logo {
-        transform: translateY(50px);
+        position: absolute;
+        top: 0;
+        left: 0;
     }
+
+    .home__container {
+        height: 800px;
+    }
+
+    .nav__social {
+        position: fixed;
+        top: 30px;
+        right: 50px;
+    }
+
+
 }
