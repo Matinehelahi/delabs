@@ -241,12 +241,13 @@ body {
         position: fixed;
         top: -120%;
         left: 0;
-        background-color: transparent;
+        background-color: var(--button-color);
         width: 100%;
         padding-block: 4.5rem 3.5rem;
         box-shadow: 0 4px 16px hsla(353, 100%, 8%, .1);
         z-index: 1600;
         transition: top .4s;
+        padding-bottom: 50px;
     }
 }
 
@@ -256,7 +257,7 @@ body {
     text-align: left;
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 1.5rem;
 }
 
 .nav__link {
@@ -266,7 +267,6 @@ body {
     font-size: 24px;
     line-height: 1.5;
     font-weight: 500;
-    color: #cbcccb;
     white-space: normal;
     padding-left: 10px;
 }
@@ -1033,7 +1033,7 @@ body {
 .footer__box {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 56px;
     padding: 0 24px;
     font-size: 15px;
@@ -1185,16 +1185,53 @@ body {
 /* ===============  scroll Progress Bar =============== */
 .scroll_Progress_Bar {
     position: fixed;
-    right: 3rem;
-    bottom: 2rem;
-    background-color: transparent;
-    display: inline-block;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    z-index: 1000;
-    transition: bottom .4s, transform .4s;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    color: #e4e4e4;
+    padding: 0 20px;
+    background-color: transparentnav;
+}
 
+.progress__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress__link {
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    color: var(--button-color);
+    font-family: var(--body-font);
+    line-height: 1.5;
+    color: #cbcccb;
+    white-space: normal;
+    width: 180px;
+    display: block;
+}
+
+.progress__list .progress-bar {
+    position: relative;
+    display: block;
+    margin-top: 0.28vw;
+    height: 0.28vw;
+    background: rgba(26, 23, 23, 0.1);
+    border-radius: 0.14vw;
+    transition: background 0.2s;
+}
+
+.progress-bar .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 100%;
+    background: rgba(26, 23, 23, 0.8);
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -1348,11 +1385,19 @@ body {
         display: block;
     }
 
+    .scroll_Progress_Bar {
+        display: none;
+    }
+
     /* ///// */
 }
 
 /* For medium devices */
 @media screen and (max-width:768px) {
+    .scroll_Progress_Bar {
+        display: none;
+    }
+
     .delabs__image {
         display: block;
     }
@@ -1388,7 +1433,8 @@ body {
     .inner1 .people__img img {
         width: 70%;
     }
-    .inner1 .people__list-col{
+
+    .inner1 .people__list-col {
         display: grid;
         place-items: center;
     }
@@ -1405,11 +1451,13 @@ body {
         place-items: left;
         width: 60%;
     }
+
     .inner2 .people__name,
     .inner2 .people__job {
         display: grid;
         place-items: center;
     }
+
     .inner2 {
         display: flex;
         padding: 0;
@@ -1457,6 +1505,10 @@ body {
 
 /* For large devices */
 @media screen and (min-width:1150px) {
+    .scroll_Progress_Bar {
+        display: block;
+    }
+
     .container {
         margin-inline: auto;
     }
@@ -1554,7 +1606,7 @@ body {
         width: 100%;
 
     }
-    
+
     .metaoltsAp__container div {
         width: 320px;
 
@@ -1816,5 +1868,8 @@ body {
         right: 50px;
     }
 
+    .Ap .container:nth-child(1) {
+        max-width: 1500px;
+    }
 
 }

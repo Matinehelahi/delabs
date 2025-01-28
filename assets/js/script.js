@@ -209,42 +209,70 @@ window.addEventListener('resize', handleScrollForDesktop);
 
 // /*=============== SCROLL  metaoltsAp ===============*/
 
-const section1 = document.querySelector('.home__container');
-const section2 = document.querySelector('.delabas__container');
-const section3 = document.querySelector('.metaoltsAp__container');
-const section4 = document.querySelector('.adventure__container');
+// const section1 = document.querySelector('.home__container');
+// const section2 = document.querySelector('.delabas__container');
+// const section3 = document.querySelector('.metaoltsAp__container');
+// const section4 = document.querySelector('.adventure__container');
 
-// وضعیت ابتدایی سکشن سوم
+// const section1Height = section1.offsetHeight; // ارتفاع سکشن اول
+// const section2Height = section2.offsetHeight; // ارتفاع سکشن دوم
 
-section3.style.position = 'absolute'; // سکشن سوم ابتدا در پایین قرار دارد
-section3.style.top = '100vh'; // در ابتدا خارج از نمای دید قرار دارد
+// // رویداد اسکرول
+// window.addEventListener('scroll', () => {
+//   const scrollY = window.scrollY; // مقدار اسکرول فعلی
 
-// نقاط اسکرول برای تغییر موقعیت
-const startScroll = section2.offsetHeight; // زمان شروع حرکت سکشن ۳
-const endScroll = startScroll + section3.offsetHeight; // زمانی که سکشن ۴ شروع می‌شود
+//   // مرحله اول: زمانی که اسکرول به سکشن 2 رسید
+//   if (scrollY >= section1Height && scrollY < section1Height + section2Height) {
+//     const progress = (scrollY - section1Height) / section2Height; // درصد پیشرفت در سکشن 2
+//     const topPosition = Math.min(progress * 100, 100); // حرکت سکشن 3 به سمت بالا
+
+//     // قرار گرفتن سکشن 3 روی سکشن 2
+//     section3.style.position = 'absolute'; // تغییر موقعیت سکشن 3 به absolute
+//     section3.style.top = `${100 - topPosition}vh`; // حرکت سکشن 3 به سمت بالا
+//   } else {
+//     // اگر اسکرول هنوز به سکشن 2 نرسیده است، سکشن 3 در پایین می‌ماند
+//     section3.style.top = '100vh'; // قرار گرفتن سکشن 3 در پایین صفحه
+//     section3.style.position = 'static'; // تغییر موقعیت سکشن 3 به حالت پیش‌فرض
+//   }
+
+//   // مرحله نهایی: وقتی اسکرول به انتهای سکشن 2 رسید
+//   if (scrollY >= section1Height + section2Height) {
+//     // سکشن 3 باید در بالای سکشن 2 باقی بماند
+//     section3.style.top = '0'; // قرار گرفتن در بالای سکشن 2
+//     section3.style.position = 'absolute'; // ثابت ماندن در موقعیت
+//     section3.style.padding ='166px 200px';
+//     section3.style.width ='2000px';
+//     section3.style.margin ='0';
+//     // section3.style.left ='100px';
+
+
+
+//   }
+// });
+
+// /*=============== SCROLL  Progress Bar ===============*/
+
+// انتخاب نوار پیشرفت
+const sectionss = document.querySelectorAll('section'); // تمام سکشن‌ها
+const progressBars = document.querySelectorAll('.bar'); // نوارهای پیشرفت
 
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY; // مقدار اسکرول فعلی
-    const section2Height = section2.offsetHeight;
-    const section3Height = section3.offsetHeight;
-    
-    // مرحله اول: وقتی به سکشن ۲ رسیدیم و انیمیشن سکشن ۲ کامل شد
-    if (scrollY >= startScroll && scrollY < startScroll + section2Height) {
-        // انیمیشن‌های سکشن ۲ اجرا می‌شود (مثلاً افزایش اندازه، چرخش و غیره)
-        section2.style.transform = `scale(1.1)`;  // به عنوان مثال یک انیمیشن روی سکشن ۲
-    }
+  sectionss.forEach((section, index) => {
+    const sectionTop = section.offsetTop; // موقعیت بالای سکشن
+    const sectionHeight = section.offsetHeight; // ارتفاع سکشن
+    const scrollY = window.scrollY + window.innerHeight / 2; // مقدار اسکرول فعلی (وسط ویوپورت)
 
-    // مرحله دوم: وقتی به سکشن ۳ رسیدیم، سکشن ۳ به بالای سکشن ۲ می‌آید
-    if (scrollY >= startScroll && scrollY < endScroll) {
-        const progress = (scrollY - startScroll) / (endScroll - startScroll);
-        
-        // انتقال سکشن ۳ به بالا، با تنظیم مقدار بیشتر برای top
-        section3.style.top = `${100 + progress * 100}vh`;  // اینجا مقدار 100 به  progress * 100 اضافه شد تا سکشن سوم بالاتر از سکشن ۲ بیاید
+    // بررسی اینکه اسکرول در محدوده این سکشن است
+    if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
+      const progress = ((scrollY - sectionTop) / sectionHeight) * 100; // محاسبه درصد پیشرفت
+      progressBars[index].style.width = `${progress}%`; // اعمال درصد پیشرفت به نوار
+    } else if (scrollY < sectionTop) {
+      // اگر اسکرول به سکشن نرسیده، عرض نوار را صفر کن
+      progressBars[index].style.width = '0%';
+    } else if (scrollY > sectionTop + sectionHeight) {
+      // اگر اسکرول از سکشن عبور کرده، نوار را پر کن
+      progressBars[index].style.width = '100%';
     }
-
-    // مرحله سوم: وقتی به سکشن ۴ رسیدیم، سکشن ۳ دیگر حرکت نمی‌کند
-    if (scrollY >= endScroll) {
-        section3.style.position = 'absolute'; // سکشن ۳ در موقعیت ثابت می‌ماند
-        section3.style.top = '0vh';  // همین موقعیت را حفظ می‌کند، می‌توانید عدد این را به دلخواه تنظیم کنید
-    }
+  });
 });
+
