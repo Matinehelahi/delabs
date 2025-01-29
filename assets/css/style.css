@@ -1194,6 +1194,7 @@ body {
     color: #e4e4e4;
     padding: 0 20px;
     background-color: transparentnav;
+    display: none;
 }
 
 .progress__list {
@@ -1258,7 +1259,7 @@ body {
     }
 
     .metaoltsAp__container div:nth-child(2) {
-        padding-left: 70px;
+        padding-left: 30px;
     }
 
 
@@ -1448,7 +1449,7 @@ body {
 
     .inner1 .people__deta {
         display: grid;
-        place-items: left;
+        padding-left: 40px;
         width: 60%;
     }
 
