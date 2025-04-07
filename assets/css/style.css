@@ -1281,14 +1281,8 @@ body {
     }
 
     .game__data {
-        margin-inline: 1rem;
+        padding-left: 0px;
     }
-
-    .game__name {
-        margin-inline: 1rem;
-
-    }
-
 
     .people__img img {
         width: 184px;
