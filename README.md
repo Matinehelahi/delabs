@@ -1,6 +1,6 @@
-# Documentation Checklist - Frontend Projects (HTML, CSS, JS)
+# Documentation Checklist - delabs
 
-این چک‌لیست برای مستندسازی پروژه‌های فرانت‌اند با HTML, CSS, JavaScript طراحی شده.
+این چک‌لیست برای مستندسازی پروژه‌ طراحی شده.
 
 ---
 
